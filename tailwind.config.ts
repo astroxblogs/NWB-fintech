@@ -59,8 +59,6 @@ export default {
         },
         // Custom Fintech Colors
         crimson: "hsl(var(--crimson))",
-        purple: "hsl(var(--purple))",
-        indigo: "hsl(var(--indigo))",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

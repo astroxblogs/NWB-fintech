@@ -336,7 +336,7 @@ const CategoryPage = () => {
                 Ready to get started?
               </h2>
               <p className="text-lg text-muted-foreground mb-10">
-                Join hundreds of companies already building with SprintNXT.
+                Join hundreds of companies already building with NWB.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button variant="hero" size="xl" className="group">

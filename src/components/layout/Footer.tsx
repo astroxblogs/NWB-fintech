@@ -60,7 +60,7 @@ export const Footer = () => {
                 <span className="font-display font-bold text-xl text-primary-foreground">S</span>
               </div>
               <span className="font-display font-semibold text-xl text-foreground">
-                Sprint<span className="text-primary">NXT</span>
+                <span className="text-primary">NWB</span>
               </span>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
@@ -74,8 +74,8 @@ export const Footer = () => {
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:hello@sprintnxt.com" className="hover:text-primary transition-colors">
-                  hello@sprintnxt.com
+                <a href="mailto:hello@NWB.com" className="hover:text-primary transition-colors">
+                  hello@NWB.com
                 </a>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
@@ -163,7 +163,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SprintNXT. All rights reserved.
+            © {new Date().getFullYear()} NWB. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => (
