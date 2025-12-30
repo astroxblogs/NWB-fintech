@@ -15,6 +15,7 @@ import {
   Shield,
   TrendingUp
 } from 'lucide-react';
+import { TypingText } from '@/components/ui/TypingText';
 
 const collections = [
   {
@@ -232,41 +233,78 @@ const CollectionMockup = ({ collection, index }: { collection: typeof collection
     ),
     // QR Collection
     () => (
-      <div className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 border border-gray-100">
-        <div className="space-y-4">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-purple-500 flex items-center justify-center shadow-md">
-                <QrCode className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <p className="font-semibold text-gray-900">QR Payment</p>
-                <p className="text-xs text-gray-600">Scan & Pay</p>
-              </div>
+      <div className="relative group perspective-1000">
+        {/* Success Badge - Floating */}
+        <motion.div
+          className="absolute -top-6 -right-6 z-20"
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+            <CheckCircle className="w-8 h-8 text-white" />
+          </div>
+        </motion.div>
+
+        <div className="bg-white rounded-[2rem] p-8 shadow-2xl border border-gray-100 relative overflow-hidden transition-transform duration-500 hover:scale-[1.02]">
+          {/* Background decorative blob */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-50 rounded-full blur-3xl -mr-16 -mt-16 opacity-50" />
+
+          {/* Card Header */}
+          <div className="flex items-center gap-4 mb-8 relative z-10">
+            <div className="w-14 h-14 rounded-2xl bg-purple-600 flex items-center justify-center shadow-lg shadow-purple-200">
+              <QrCode className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <p className="text-lg font-bold text-gray-900">QR Payment</p>
+              <p className="text-sm text-gray-500">Scan & Pay</p>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-purple-100 flex items-center justify-center">
-            <div className="w-32 h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center">
-              <div className="grid grid-cols-8 gap-1">
-                {Array.from({ length: 64 }).map((_, i) => (
-                  <div
-                    key={i}
-                    className={`w-1 h-1 rounded-sm ${Math.random() > 0.5 ? 'bg-purple-900' : 'bg-white'}`}
-                  />
-                ))}
+          {/* QR Code Area */}
+          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 mb-8 border border-purple-100 flex items-center justify-center relative group-hover:shadow-inner transition-shadow">
+            <div className="w-48 h-48 bg-white rounded-2xl p-4 shadow-sm">
+              {/* Realistic QR Pattern Construction */}
+              <div className="w-full h-full bg-gray-900 rounded-lg p-2 flex flex-wrap content-start">
+                <div className="w-full h-full bg-white grid grid-cols-12 gap-0.5 p-1">
+                  {/* Corner Markers */}
+                  <div className="col-span-4 row-span-4 border-4 border-black rounded-sm relative">
+                    <div className="absolute inset-2 bg-black rounded-sm" />
+                  </div>
+                  <div className="col-span-4 row-span-4"></div>
+                  <div className="col-span-4 row-span-4 border-4 border-black rounded-sm relative">
+                    <div className="absolute inset-2 bg-black rounded-sm" />
+                  </div>
+
+                  {/* Random Data Pattern */}
+                  {Array.from({ length: 96 }).map((_, i) => (
+                    <div key={i} className={`rounded-[1px] ${Math.random() > 0.4 ? 'bg-black' : 'bg-transparent'}`} style={{ gridColumn: 'span 1', gridRow: 'span 1' }} />
+                  ))}
+
+                  {/* Bottom Left Marker */}
+                  <div className="col-span-4 row-span-4 border-4 border-black rounded-sm relative" style={{ gridRowStart: 9 }}>
+                    <div className="absolute inset-2 bg-black rounded-sm" />
+                  </div>
+                </div>
               </div>
             </div>
+
+            {/* Scan Animation Line */}
+            <motion.div
+              className="absolute left-10 right-10 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-70"
+              animate={{ top: ['20%', '80%', '20%'] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-white rounded-lg p-3 text-center shadow-sm border border-gray-100">
-              <p className="text-xs text-gray-600 mb-1">Scans</p>
-              <p className="text-xl font-bold text-gray-900">1,247</p>
+          {/* Stats Row */}
+          <div className="grid grid-cols-2 gap-6 relative z-10">
+            <div className="text-center p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:bg-gray-100 transition-colors">
+              <p className="text-sm text-gray-500 font-medium mb-1">Scans</p>
+              <p className="text-2xl font-bold text-gray-900">1,247</p>
             </div>
-            <div className="bg-white rounded-lg p-3 text-center shadow-sm border border-gray-100">
-              <p className="text-xs text-gray-600 mb-1">Payments</p>
-              <p className="text-xl font-bold text-green-600">1,189</p>
+            <div className="text-center p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:bg-gray-100 transition-colors">
+              <p className="text-sm text-gray-500 font-medium mb-1">Payments</p>
+              <p className="text-2xl font-bold text-green-600 font-mono">1,189</p>
             </div>
           </div>
         </div>
@@ -310,9 +348,11 @@ export default function Collections() {
               style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}
             >
               Smart{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                UPI Collections
-              </span>
+              <TypingText
+                text="UPI Collections"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
+                delay={0.5}
+              />
               {' '}for Modern Businesses
             </motion.h1>
 
@@ -450,14 +490,16 @@ export default function Collections() {
                   >
                     <CollectionMockup collection={collection} index={index} />
 
-                    {/* Floating success indicator */}
-                    <motion.div
-                      className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-green-500 flex items-center justify-center shadow-lg"
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <CheckCircle className="w-6 h-6 text-white" />
-                    </motion.div>
+                    {/* Floating success indicator - Hide for QR section as it has its own */}
+                    {index !== 3 && (
+                      <motion.div
+                        className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-green-500 flex items-center justify-center shadow-lg"
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <CheckCircle className="w-6 h-6 text-white" />
+                      </motion.div>
+                    )}
                   </motion.div>
                 </div>
               </motion.div>
@@ -497,10 +539,12 @@ export default function Collections() {
               Join thousands of businesses already using our UPI collection solutions to streamline payments and boost revenue.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold">
-                <span>Get Started Today</span>
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              <Link to="/contact">
+                <Button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold">
+                  <span>Get Started Today</span>
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </Link>
               <Button className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg rounded-xl transition-all font-semibold">
                 <span>Contact Sales</span>
               </Button>

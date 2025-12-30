@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -201,9 +202,11 @@ export default function RecurringCollections() {
                     </p>
 
                     <div className="flex justify-center gap-4">
-                        <Button className="bg-white text-green-900 hover:bg-green-50 px-8 py-4 text-lg rounded-xl font-bold shadow-lg">
-                            Get Started
-                        </Button>
+                        <Link to="/contact">
+                            <Button className="bg-white text-green-900 hover:bg-green-50 px-8 py-4 text-lg rounded-xl font-bold shadow-lg">
+                                Get Started
+                            </Button>
+                        </Link>
                         <Button variant="outline" className="border-green-400 text-white hover:bg-green-800/50 px-8 py-4 text-lg rounded-xl font-semibold backdrop-blur-sm">
                             View Pricing
                         </Button>

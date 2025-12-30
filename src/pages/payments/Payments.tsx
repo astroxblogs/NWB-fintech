@@ -17,6 +17,7 @@ import {
   TrendingUp,
   Clock
 } from 'lucide-react';
+import { TypingText } from '@/components/ui/TypingText';
 
 const payments = [
   {
@@ -332,7 +333,7 @@ const PaymentMockup = ({ payment, index }: { payment: typeof payments[0], index:
                 <div key={payment.month} className="flex items-center justify-between py-1">
                   <div className="flex items-center gap-2">
                     <div className={`w-4 h-4 rounded-full ${payment.status === 'paid' ? 'bg-green-500' :
-                        payment.status === 'due' ? 'bg-yellow-500' : 'bg-gray-200'
+                      payment.status === 'due' ? 'bg-yellow-500' : 'bg-gray-200'
                       }`} />
                     <p className="text-xs text-gray-700">{payment.month}</p>
                   </div>
@@ -437,9 +438,11 @@ export default function Payments() {
               style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}
             >
               Accept Payments{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Everywhere
-              </span>
+              <TypingText
+                text="Everywhere"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
+                delay={0.5}
+              />
             </motion.h1>
 
             <motion.p
@@ -458,10 +461,12 @@ export default function Payments() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <Button className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all">
-                <span>Start Accepting Payments</span>
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/contact">
+                <Button className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all">
+                  <span>Start Accepting Payments</span>
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
               <Button className="bg-white border-2 border-gray-200 hover:border-gray-300 text-gray-900 px-8 py-6 text-lg rounded-xl shadow-sm hover:shadow-md transition-all">
                 <span>View Integration Guide</span>
               </Button>
@@ -623,10 +628,12 @@ export default function Payments() {
               Join thousands of businesses already processing payments worldwide with our comprehensive payment solutions.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold">
-                <span>Get Started Today</span>
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              <Link to="/contact">
+                <Button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold">
+                  <span>Get Started Today</span>
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </Link>
               <Button className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg rounded-xl transition-all font-semibold">
                 <span>Contact Sales</span>
               </Button>

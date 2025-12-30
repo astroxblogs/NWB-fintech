@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -46,10 +47,12 @@ export default function UPICollection() {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">
-                                    Start Collecting
-                                    <ArrowRight className="w-5 h-5 ml-2" />
-                                </Button>
+                                <Link to="/contact">
+                                    <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1">
+                                        Start Collecting
+                                        <ArrowRight className="w-5 h-5 ml-2" />
+                                    </Button>
+                                </Link>
                                 <Button variant="outline" className="border-gray-200 text-gray-700 px-8 py-6 text-lg rounded-xl hover:bg-gray-50">
                                     View API Docs
                                 </Button>
@@ -275,9 +278,11 @@ export default function UPICollection() {
                             </p>
 
                             <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <Button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl font-bold shadow-lg">
-                                    Get Started Now
-                                </Button>
+                                <Link to="/contact">
+                                    <Button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl font-bold shadow-lg">
+                                        Get Started Now
+                                    </Button>
+                                </Link>
                                 <Button variant="outline" className="border-blue-400 text-white hover:bg-blue-700/50 px-8 py-6 text-lg rounded-xl font-semibold backdrop-blur-sm">
                                     Talk to Sales
                                 </Button>

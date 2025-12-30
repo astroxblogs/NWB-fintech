@@ -26,6 +26,8 @@ import CrossBorderPayments from "./pages/payments/CrossBorderPayments";
 import InsuranceTech from "./pages/service/InsuranceTech";
 import LendingPlatform from "./pages/service/LendingPlatform";
 import WealthManagement from "./pages/service/WealthManagement";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 
 
@@ -42,6 +44,8 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/payments" element={<Payments />} />
           <Route path="/service" element={<Service />} />

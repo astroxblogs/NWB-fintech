@@ -13,6 +13,7 @@ import {
   TrendingUp,
   Users
 } from 'lucide-react';
+import { TypingText } from '@/components/ui/TypingText';
 
 const services = [
   {
@@ -307,9 +308,11 @@ export default function Service() {
               style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}
             >
               Complete{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Financial Services
-              </span>
+              <TypingText
+                text="Financial Services"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
+                delay={0.5}
+              />
               {' '}Platform
             </motion.h1>
 
@@ -329,10 +332,12 @@ export default function Service() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <Button className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all">
-                <span>Explore Services</span>
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/contact">
+                <Button className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all">
+                  <span>Explore Services</span>
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
               <Button className="bg-white border-2 border-gray-200 hover:border-gray-300 text-gray-900 px-8 py-6 text-lg rounded-xl shadow-sm hover:shadow-md transition-all">
                 <span>Schedule Consultation</span>
               </Button>
@@ -494,10 +499,12 @@ export default function Service() {
               Join leading financial institutions already using our comprehensive service platform to deliver exceptional client experiences.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold">
-                <span>Get Started Today</span>
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              <Link to="/contact">
+                <Button className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold">
+                  <span>Get Started Today</span>
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </Link>
               <Button className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg rounded-xl transition-all font-semibold">
                 <span>Contact Sales</span>
               </Button>

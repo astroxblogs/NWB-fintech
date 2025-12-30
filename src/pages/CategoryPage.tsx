@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
-import { 
-  Building2, 
-  CreditCard, 
-  Shield, 
-  BarChart3, 
-  Wallet, 
+import { useLocation, Link } from 'react-router-dom';
+import {
+  Building2,
+  CreditCard,
+  Shield,
+  BarChart3,
+  Wallet,
   Zap,
   CheckCircle,
   ArrowRight,
@@ -150,7 +150,7 @@ const CategoryPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       <main>
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 overflow-hidden gradient-hero">
@@ -204,10 +204,12 @@ const CategoryPage = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <Button variant="hero" size="xl" className="group">
-                  <span>Get Started</span>
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <Link to="/contact">
+                  <Button variant="hero" size="xl" className="group">
+                    <span>Get Started</span>
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
                 <Button variant="hero-outline" size="xl">
                   View Documentation
                 </Button>
@@ -339,10 +341,12 @@ const CategoryPage = () => {
                 Join hundreds of companies already building with NWB.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button variant="hero" size="xl" className="group">
-                  <span>Start Free Trial</span>
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <Link to="/contact">
+                  <Button variant="hero" size="xl" className="group">
+                    <span>Start Free Trial</span>
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
                 <Button variant="hero-outline" size="xl">
                   Contact Sales
                 </Button>

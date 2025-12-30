@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Zap, CheckCircle2, BarChart3, Activity } from 'lucide-react';
 
 export const CTASection = () => {
@@ -158,10 +159,12 @@ export const CTASection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center justify-center gap-5 mb-10">
-              <button className="group px-10 py-5 bg-gradient-to-r from-orange-500 via-red-500 to-purple-600 text-white rounded-2xl font-bold text-lg shadow-2xl shadow-purple-300 hover:shadow-purple-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 flex items-center gap-3">
-                Start Free Trial
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-              </button>
+              <Link to="/contact">
+                <button className="group px-10 py-5 bg-gradient-to-r from-orange-500 via-red-500 to-purple-600 text-white rounded-2xl font-bold text-lg shadow-2xl shadow-purple-300 hover:shadow-purple-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 flex items-center gap-3">
+                  Start Free Trial
+                  <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                </button>
+              </Link>
               <button className="px-10 py-5 bg-white text-gray-800 border-3 border-gray-800 rounded-2xl font-bold text-lg hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 hover:scale-105 shadow-lg">
                 Talk to Sales
               </button>

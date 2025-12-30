@@ -1,43 +1,15 @@
 import { Link } from 'react-router-dom';
-import { 
-  Twitter, 
-  Linkedin, 
-  Github, 
+import {
+  Twitter,
+  Linkedin,
+  Github,
   Mail,
   MapPin,
   Phone,
   ArrowUpRight
 } from 'lucide-react';
 
-const footerLinks = {
-  products: [
-    { name: 'Banking Solutions', href: '/banking' },
-    { name: 'Payment Processing', href: '/payments' },
-    { name: 'Fraud Detection', href: '/security' },
-    { name: 'Analytics Platform', href: '/analytics' },
-    { name: 'Digital Wallets', href: '/wallets' },
-  ],
-  company: [
-    { name: 'About Us', href: '/about' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Press', href: '/press' },
-    { name: 'Partners', href: '/partners' },
-  ],
-  resources: [
-    { name: 'Documentation', href: '/docs' },
-    { name: 'API Reference', href: '/api' },
-    { name: 'Status', href: '/status' },
-    { name: 'Changelog', href: '/changelog' },
-    { name: 'Support', href: '/support' },
-  ],
-  legal: [
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
-    { name: 'Cookie Policy', href: '/cookies' },
-    { name: 'Security', href: '/security-policy' },
-  ],
-};
+
 
 const socialLinks = [
   { name: 'Twitter', href: '#', icon: Twitter },
@@ -46,11 +18,48 @@ const socialLinks = [
 ];
 
 export const Footer = () => {
+  // Defined inside component or outside, but sticking to existing pattern
+  const footerLinks = {
+    services: [
+      { name: 'Collections', href: '/collections', type: 'category' },
+      { name: 'UPI Data', href: '/collections/upi', type: 'sub' },
+      { name: 'QR Collection', href: '/collections/qr', type: 'sub' },
+
+      { name: 'Payments', href: '/payments', type: 'category' },
+      { name: 'Payment Gateway', href: '/payments/gateway', type: 'sub' },
+      { name: 'UPI Solutions', href: '/payments/upi', type: 'sub' },
+
+      { name: 'Financial Services', href: '/service', type: 'category' },
+      { name: 'Insurance Tech', href: '/service/insurance', type: 'sub' },
+      { name: 'Wealth Management', href: '/service/wealth', type: 'sub' },
+    ],
+    company: [
+      { name: 'About Us' },
+      { name: 'Careers' },
+      { name: 'Blog' },
+      { name: 'Press' },
+      { name: 'Partners' },
+    ],
+    resources: [
+      { name: 'Documentation' },
+      { name: 'API Reference' },
+      { name: 'Status' },
+      { name: 'Changelog' },
+      { name: 'Support' },
+    ],
+    legal: [
+      { name: 'Privacy Policy' },
+      { name: 'Terms of Service' },
+      { name: 'Cookie Policy' },
+      { name: 'Security' },
+    ],
+  };
+
   return (
     <footer className="relative bg-card border-t border-border">
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
-      
+
       <div className="relative container mx-auto px-6 py-16 lg:py-20">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand Column */}
@@ -64,7 +73,7 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
-              Next-generation fintech infrastructure powering the future of digital finance. 
+              Next-generation fintech infrastructure powering the future of digital finance.
               Built for scale, designed for innovation.
             </p>
             <div className="space-y-3 text-sm">
@@ -87,18 +96,21 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Products */}
+          {/* Our Services */}
           <div>
-            <h4 className="font-display font-semibold text-foreground mb-4">Products</h4>
-            <ul className="space-y-3">
-              {footerLinks.products.map((link) => (
+            <h4 className="font-display font-semibold text-foreground mb-4">Our Services</h4>
+            <ul className="space-y-2">
+              {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group"
+                    className={`text-sm transition-colors inline-flex items-center gap-1 group w-full ${link.type === 'category'
+                      ? 'text-foreground font-semibold mt-3 first:mt-0 hover:text-primary'
+                      : 'text-muted-foreground hover:text-primary pl-3'
+                      }`}
                   >
                     {link.name}
-                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
+                    {link.type === 'category' && <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />}
                   </Link>
                 </li>
               ))}
@@ -111,13 +123,13 @@ export const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group"
+                  <a
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group cursor-default"
                   >
                     {link.name}
-                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -129,13 +141,13 @@ export const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group"
+                  <a
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group cursor-default"
                   >
                     {link.name}
-                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -147,13 +159,13 @@ export const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group"
+                  <a
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group cursor-default"
                   >
                     {link.name}
-                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

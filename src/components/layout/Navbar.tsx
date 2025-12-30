@@ -53,9 +53,8 @@ const navLinks = [
   { name: 'Collections', href: '#', hasDropdown: true, type: 'collections' },
   { name: 'Payments', href: '#', hasDropdown: true, type: 'payments' },
   { name: 'Service', href: '#', hasDropdown: true, type: 'service' },
-  { name: 'Solutions', href: '/solutions' },
-  { name: 'Pricing', href: '/pricing' },
   { name: 'About', href: '/about' },
+  { name: 'Contact Us', href: '/contact' },
 ];
 
 export const Navbar = () => {
@@ -86,8 +85,8 @@ export const Navbar = () => {
       <nav
         className={cn(
           "mx-auto max-w-7xl rounded-2xl transition-all duration-500",
-          isScrolled 
-            ? "bg-white/95 backdrop-blur-lg shadow-lg border border-gray-100 px-6 py-3" 
+          isScrolled
+            ? "bg-white/95 backdrop-blur-lg shadow-lg border border-gray-100 px-6 py-3"
             : "bg-white/80 backdrop-blur-sm border border-gray-100 shadow-sm px-6 py-3"
         )}
       >
@@ -125,8 +124,8 @@ export const Navbar = () => {
                     <ChevronDown className={cn(
                       "w-4 h-4 transition-transform duration-200",
                       ((link.type === 'collections' && isBankingOpen) ||
-                       (link.type === 'payments' && isPaymentsOpen) ||
-                       (link.type === 'service' && isSecurityOpen)) && "rotate-180"
+                        (link.type === 'payments' && isPaymentsOpen) ||
+                        (link.type === 'service' && isSecurityOpen)) && "rotate-180"
                     )} />
                   </button>
                 ) : (
@@ -145,51 +144,51 @@ export const Navbar = () => {
                     {((link.type === 'collections' && isBankingOpen) ||
                       (link.type === 'payments' && isPaymentsOpen) ||
                       (link.type === 'service' && isSecurityOpen)) && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
-                        onMouseEnter={() => {
-                          if (link.type === 'collections') setIsBankingOpen(true);
-                          if (link.type === 'payments') setIsPaymentsOpen(true);
-                          if (link.type === 'service') setIsSecurityOpen(true);
-                        }}
-                        onMouseLeave={() => {
-                          if (link.type === 'collections') setIsBankingOpen(false);
-                          if (link.type === 'payments') setIsPaymentsOpen(false);
-                          if (link.type === 'service') setIsSecurityOpen(false);
-                        }}
-                      >
-                        <div className="bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl border border-gray-100 p-4 min-w-[480px] grid grid-cols-2 gap-2">
-                          {(link.type === 'collections' ? collectionsProducts :
-                            link.type === 'payments' ? paymentsProducts :
-                            serviceProducts).map((product) => (
-                            <Link
-                              key={product.name}
-                              to={link.type === 'collections' ? "/collections" :
-                                  link.type === 'payments' ? "/payments" :
-                                  link.type === 'service' ? "/service" :
-                                  product.href}
-                              className="flex items-start gap-3 p-3 rounded-xl hover:bg-blue-50 transition-all duration-200 group"
-                            >
-                              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center group-hover:from-blue-200 group-hover:to-blue-100 transition-all shadow-sm">
-                                <product.icon className="w-5 h-5 text-blue-600" />
-                              </div>
-                              <div>
-                                <span className="block font-semibold text-sm text-gray-900 group-hover:text-blue-600 transition-colors">
-                                  {product.name}
-                                </span>
-                                <span className="text-xs text-gray-600 leading-snug">
-                                  {product.description}
-                                </span>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
+                          onMouseEnter={() => {
+                            if (link.type === 'collections') setIsBankingOpen(true);
+                            if (link.type === 'payments') setIsPaymentsOpen(true);
+                            if (link.type === 'service') setIsSecurityOpen(true);
+                          }}
+                          onMouseLeave={() => {
+                            if (link.type === 'collections') setIsBankingOpen(false);
+                            if (link.type === 'payments') setIsPaymentsOpen(false);
+                            if (link.type === 'service') setIsSecurityOpen(false);
+                          }}
+                        >
+                          <div className="bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl border border-gray-100 p-4 min-w-[480px] grid grid-cols-2 gap-2">
+                            {(link.type === 'collections' ? collectionsProducts :
+                              link.type === 'payments' ? paymentsProducts :
+                                serviceProducts).map((product) => (
+                                  <Link
+                                    key={product.name}
+                                    to={link.type === 'collections' ? "/collections" :
+                                      link.type === 'payments' ? "/payments" :
+                                        link.type === 'service' ? "/service" :
+                                          product.href}
+                                    className="flex items-start gap-3 p-3 rounded-xl hover:bg-blue-50 transition-all duration-200 group"
+                                  >
+                                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center group-hover:from-blue-200 group-hover:to-blue-100 transition-all shadow-sm">
+                                      <product.icon className="w-5 h-5 text-blue-600" />
+                                    </div>
+                                    <div>
+                                      <span className="block font-semibold text-sm text-gray-900 group-hover:text-blue-600 transition-colors">
+                                        {product.name}
+                                      </span>
+                                      <span className="text-xs text-gray-600 leading-snug">
+                                        {product.description}
+                                      </span>
+                                    </div>
+                                  </Link>
+                                ))}
+                          </div>
+                        </motion.div>
+                      )}
                   </AnimatePresence>
                 )}
               </div>
@@ -198,16 +197,18 @@ export const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button 
+            <Button
               className="text-gray-700 hover:text-gray-900 font-medium text-sm bg-transparent hover:bg-gray-50 border-0 shadow-none"
             >
               Sign In
             </Button>
-            <Button 
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-sm px-6 py-2 rounded-lg shadow-md hover:shadow-lg transition-all"
-            >
-              Book Demo
-            </Button>
+            <Link to="/contact">
+              <Button
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-sm px-6 py-2 rounded-lg shadow-md hover:shadow-lg transition-all"
+              >
+                Get Started Today
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -238,24 +239,24 @@ export const Navbar = () => {
                       <div className="pl-4 space-y-2">
                         {(link.type === 'collections' ? collectionsProducts :
                           link.type === 'payments' ? paymentsProducts :
-                          serviceProducts).map((product) => (
-                          <Link
-                            key={product.name}
-                            to={link.type === 'collections' ? "/collections" :
-                                link.type === 'payments' ? "/payments" :
-                                link.type === 'service' ? "/service" :
-                                product.href}
-                            className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors py-2 group"
-                          >
-                            <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                              <product.icon className="w-4 h-4 text-blue-600" />
-                            </div>
-                            <div>
-                              <div className="text-sm font-medium">{product.name}</div>
-                              <div className="text-xs text-gray-500">{product.description}</div>
-                            </div>
-                          </Link>
-                        ))}
+                            serviceProducts).map((product) => (
+                              <Link
+                                key={product.name}
+                                to={link.type === 'collections' ? "/collections" :
+                                  link.type === 'payments' ? "/payments" :
+                                    link.type === 'service' ? "/service" :
+                                      product.href}
+                                className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors py-2 group"
+                              >
+                                <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                                  <product.icon className="w-4 h-4 text-blue-600" />
+                                </div>
+                                <div>
+                                  <div className="text-sm font-medium">{product.name}</div>
+                                  <div className="text-xs text-gray-500">{product.description}</div>
+                                </div>
+                              </Link>
+                            ))}
                       </div>
                     </div>
                   ) : (
@@ -269,16 +270,18 @@ export const Navbar = () => {
                 </div>
               ))}
               <div className="pt-4 space-y-3 border-t border-gray-100">
-                <Button 
+                <Button
                   className="w-full bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 font-medium rounded-lg"
                 >
                   Sign In
                 </Button>
-                <Button 
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-lg shadow-md"
-                >
-                  Book Demo
-                </Button>
+                <Link to="/contact">
+                  <Button
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-lg shadow-md"
+                  >
+                    Get Started Today
+                  </Button>
+                </Link>
               </div>
             </div>
           </motion.div>

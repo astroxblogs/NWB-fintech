@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { TypingText } from '@/components/ui/TypingText';
 
 export const HeroSection = () => {
   return (
@@ -62,16 +64,15 @@ export const HeroSection = () => {
               style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}
             >
               The Future of{' '}
-              <span className="relative">
+              <span className="relative inline-block min-w-[300px]">
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Digital Finance
+                  <TypingText
+                    text={["Digital Finance", "Global Payments", "Modern Banking"]}
+                    typingSpeed={150}
+                    deletingSpeed={75}
+                    waitTime={2000}
+                  />
                 </span>
-                <motion.span
-                  className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                />
               </span>
               <br />
               Starts Here
@@ -95,12 +96,14 @@ export const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-start gap-4"
             >
-              <Button
-                className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
-              >
-                <span>Get Started Free</span>
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/contact">
+                <Button
+                  className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
+                >
+                  <span>Get Started Free</span>
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
               <Button
                 className="group bg-white border-2 border-gray-200 hover:border-gray-300 text-gray-900 px-8 py-6 text-lg rounded-xl shadow-sm hover:shadow-md transition-all"
               >

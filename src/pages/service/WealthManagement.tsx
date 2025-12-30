@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -50,10 +51,12 @@ export default function WealthManagement() {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <Button className="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg transition-all">
-                                    Explore APIs
-                                    <ArrowRight className="w-5 h-5 ml-2" />
-                                </Button>
+                                <Link to="/contact">
+                                    <Button className="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg transition-all">
+                                        Explore APIs
+                                        <ArrowRight className="w-5 h-5 ml-2" />
+                                    </Button>
+                                </Link>
                             </div>
                         </motion.div>
 
@@ -165,9 +168,11 @@ export default function WealthManagement() {
                     </p>
 
                     <div className="flex justify-center gap-4">
-                        <Button className="bg-white text-yellow-900 hover:bg-yellow-50 px-8 py-6 text-lg rounded-xl font-bold shadow-lg shadow-yellow-900/50">
-                            Start Building
-                        </Button>
+                        <Link to="/contact">
+                            <Button className="bg-white text-yellow-900 hover:bg-yellow-50 px-8 py-6 text-lg rounded-xl font-bold shadow-lg shadow-yellow-900/50">
+                                Start Building
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </section>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -95,10 +96,12 @@ export default function DigitalLending() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <Button variant="hero" size="xl" className="group">
-                <span>Start Free Trial</span>
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/contact">
+                <Button variant="hero" size="xl" className="group">
+                  <span>Start Free Trial</span>
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
               <Button variant="hero-outline" size="xl">
                 <span>Schedule Demo</span>
               </Button>
@@ -216,10 +219,12 @@ export default function DigitalLending() {
               Join forward-thinking lenders already using our digital lending platform.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="hero" size="xl" className="group">
-                <span>Get Started Today</span>
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/contact">
+                <Button variant="hero" size="xl" className="group">
+                  <span>Get Started Today</span>
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
               <Button variant="hero-outline" size="xl">
                 <span>Contact Sales</span>
               </Button>
