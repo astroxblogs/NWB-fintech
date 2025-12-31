@@ -45,8 +45,9 @@ const paymentsProducts = [
 
 const serviceProducts = [
   { name: 'Insurance', href: '/service/insurance', icon: Umbrella, description: 'Comprehensive insurance solutions' },
-  { name: 'Loan', href: '/service/loan', icon: Banknote, description: 'Flexible loan products' },
-  { name: 'Financial Service', href: '/service/financial-service', icon: DollarSign, description: 'Complete financial services' },
+  { name: 'Loan', href: '/service/lending', icon: Banknote, description: 'Flexible loan products' },
+  { name: 'Financial Service', href: '/service/wealth', icon: DollarSign, description: 'Complete financial services' },
+  { name: 'BBPS', href: '/service/bbps', icon: Zap, description: 'Bharat Bill Pay System' },
 ];
 
 const navLinks = [
@@ -63,6 +64,7 @@ export const Navbar = () => {
   const [isPaymentsOpen, setIsPaymentsOpen] = useState(false);
   const [isSecurityOpen, setIsSecurityOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -229,29 +231,51 @@ export const Navbar = () => {
                 <div key={link.name}>
                   {link.hasDropdown ? (
                     <div className="space-y-3">
-                      <span className="block font-semibold text-gray-900 text-sm">{link.name}</span>
-                      <div className="pl-4 space-y-2">
-                        {(link.type === 'collections' ? collectionsProducts :
-                          link.type === 'payments' ? paymentsProducts :
-                            serviceProducts).map((product) => (
-                              <Link
-                                key={product.name}
-                                to={link.type === 'collections' ? "/collections" :
-                                  link.type === 'payments' ? "/payments" :
-                                    link.type === 'service' ? "/service" :
-                                      product.href}
-                                className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors py-2 group"
-                              >
-                                <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                                  <product.icon className="w-4 h-4 text-blue-600" />
-                                </div>
-                                <div>
-                                  <div className="text-sm font-medium">{product.name}</div>
-                                  <div className="text-xs text-gray-500">{product.description}</div>
-                                </div>
-                              </Link>
-                            ))}
-                      </div>
+                      <button
+                        onClick={() => setOpenMobileSection(openMobileSection === link.name ? null : link.name)}
+                        className="flex items-center justify-between w-full font-semibold text-gray-900 text-sm py-2"
+                      >
+                        {link.name}
+                        <ChevronDown className={cn(
+                          "w-4 h-4 transition-transform duration-200",
+                          openMobileSection === link.name && "rotate-180"
+                        )} />
+                      </button>
+                      <AnimatePresence>
+                        {openMobileSection === link.name && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 space-y-2 pb-2">
+                              {(link.type === 'collections' ? collectionsProducts :
+                                link.type === 'payments' ? paymentsProducts :
+                                  serviceProducts).map((product) => (
+                                    <Link
+                                      key={product.name}
+                                      to={link.type === 'collections' ? "/collections" :
+                                        link.type === 'payments' ? "/payments" :
+                                          link.type === 'service' ? "/service" :
+                                            product.href}
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors py-2 group"
+                                    >
+                                      <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                                        <product.icon className="w-4 h-4 text-blue-600" />
+                                      </div>
+                                      <div>
+                                        <div className="text-sm font-medium">{product.name}</div>
+                                        <div className="text-xs text-gray-500">{product.description}</div>
+                                      </div>
+                                    </Link>
+                                  ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   ) : (
                     <Link

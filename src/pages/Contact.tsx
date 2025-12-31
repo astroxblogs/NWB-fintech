@@ -65,9 +65,9 @@ export default function Contact() {
 
                             <div className="grid gap-6">
                                 {[
-                                    { icon: Mail, title: "Email Us", content: "support@nwb.finance", color: "text-blue-600", bg: "bg-blue-50" },
-                                    { icon: Phone, title: "Call Us", content: "+1 (888) 123-4567", color: "text-green-600", bg: "bg-green-50" },
-                                    { icon: MapPin, title: "Visit Us", content: "123 Fintech Blvd, New York, NY", color: "text-purple-600", bg: "bg-purple-50" },
+                                    { icon: Mail, title: "Email Us", content: "info@finsmartpay.in", color: "text-blue-600", bg: "bg-blue-50" },
+                                    { icon: Phone, title: "Call Us", content: "+91 9116116269", color: "text-green-600", bg: "bg-green-50" },
+                                    { icon: MapPin, title: "Visit Us", content: "Corporate Add.: TC-719, 7th Floor, Capital Highstreet, Bhiwadi (Raj.), 301019, India", color: "text-purple-600", bg: "bg-purple-50" },
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                                         <div className={`w-12 h-12 rounded-lg ${item.bg} flex items-center justify-center`}>

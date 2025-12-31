@@ -13,8 +13,8 @@ import {
 
 const socialLinks = [
   { name: 'Twitter', href: '#', icon: Twitter },
-  { name: 'LinkedIn', href: '#', icon: Linkedin },
-  { name: 'GitHub', href: '#', icon: Github },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/netweb-bharat-private-limited/', icon: Linkedin },
+
 ];
 
 export const Footer = () => {
@@ -71,21 +71,24 @@ export const Footer = () => {
               Next-generation fintech infrastructure powering the future of digital finance.
               Built for scale, designed for innovation.
             </p>
+
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-3 text-muted-foreground">
-                <MapPin className="w-4 h-4 text-primary" />
-                <span>Mumbai, India</span>
+                <MapPin className="w-5 h-5 text-primary" />
+                <span>Corporate Add.: TC-719, 7th Floor,
+                  Capital Highstreet, Bhiwadi (Raj.), 301019, India</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:hello@NWB.com" className="hover:text-primary transition-colors">
-                  hello@NWB.com
+                <a href="mailto:info@finsmartpay.in" className="hover:text-primary transition-colors">
+                  info@finsmartpay.in
                 </a>
+
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:+911234567890" className="hover:text-primary transition-colors">
-                  +91 123 456 7890
+                <a href="tel:9116116269" className="hover:text-primary transition-colors">
+                  +91 9116116269
                 </a>
               </div>
             </div>

@@ -26,12 +26,14 @@ import CrossBorderPayments from "./pages/payments/CrossBorderPayments";
 import InsuranceTech from "./pages/service/InsuranceTech";
 import LendingPlatform from "./pages/service/LendingPlatform";
 import WealthManagement from "./pages/service/WealthManagement";
+import BBPS from "./pages/service/BBPS";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 
 
 
 import ScrollToTop from "./components/ScrollToTop";
+import { WhatsAppButton } from "./components/WhatsAppButton";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +54,7 @@ const App = () => (
           <Route path="/service/insurance" element={<InsuranceTech />} />
           <Route path="/service/lending" element={<LendingPlatform />} />
           <Route path="/service/wealth" element={<WealthManagement />} />
+          <Route path="/service/bbps" element={<BBPS />} />
 
           <Route path="/banking" element={<CategoryPage />} />
           <Route path="/payments" element={<CategoryPage />} />
@@ -80,6 +83,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <WhatsAppButton />
     </TooltipProvider>
   </QueryClientProvider>
 );

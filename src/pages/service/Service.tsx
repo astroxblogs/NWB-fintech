@@ -11,7 +11,8 @@ import {
   ArrowRight,
   Shield,
   TrendingUp,
-  Users
+  Users,
+  Zap
 } from 'lucide-react';
 import { TypingText } from '@/components/ui/TypingText';
 
@@ -57,6 +58,20 @@ const services = [
     ],
     benefits: ['Personalized services', 'Data-driven insights', 'Regulatory compliance', 'Scalable infrastructure'],
     link: '/service/wealth'
+  },
+  {
+    icon: Zap,
+    title: 'BBPS',
+    subtitle: 'Bharat Bill Pay System',
+    description: 'Unified bill payment system offering interoperable and accessible bill payment services to customers through a network of agents & digital channels.',
+    features: [
+      '20,000+ Billers connected',
+      'Instant payment confirmation',
+      'Dispute management system',
+      'Standardized bill payment'
+    ],
+    benefits: ['One-stop bill payment', 'Multiple payment modes', 'Instant receipt generation', 'Fraud protection'],
+    link: '/service/bbps'
   }
 ];
 
@@ -270,6 +285,66 @@ const ServiceMockup = ({ service, index }: { service: typeof services[0], index:
         </div>
       </div>
     ),
+    // BBPS
+    () => (
+      <div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl p-6 border border-gray-100">
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-orange-500 flex items-center justify-center shadow-md">
+                <Zap className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900">Bill Payments</p>
+                <p className="text-xs text-gray-600">Bharat BillPay</p>
+              </div>
+            </div>
+            <div className="bg-orange-100 px-2 py-1 rounded text-[10px] font-bold text-orange-700">
+              BBPS
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-4 shadow-sm border border-orange-100">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                <Users className="w-4 h-4 text-blue-600" />
+              </div>
+              <div className="flex-1">
+                <p className="text-xs text-gray-500">Electricity Bill</p>
+                <p className="text-sm font-bold text-gray-900">Tata Power Delhi</p>
+              </div>
+              <p className="font-bold text-gray-900">₹ 850</p>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex justify-between text-xs">
+                <span className="text-gray-500">Bill Date</span>
+                <span className="font-medium">20 Dec 2024</span>
+              </div>
+              <div className="flex justify-between text-xs">
+                <span className="text-gray-500">Due Date</span>
+                <span className="font-medium text-red-500">05 Jan 2025</span>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-4 border-t border-gray-50">
+              <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div className="h-full w-full bg-orange-500 animate-[loading_2s_ease-in-out_infinite]" />
+              </div>
+              <p className="text-[10px] text-center text-gray-400 mt-2">Processing Payment...</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-2">
+            {['DTH', 'Gas', 'Mobile'].map((item, i) => (
+              <div key={i} className="bg-orange-50 rounded-lg p-2 text-center border border-orange-100/50">
+                <p className="text-[10px] font-medium text-orange-700">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    )
   ];
 
   const MockupComponent = mockupVariants[index];
