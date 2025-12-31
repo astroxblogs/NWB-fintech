@@ -285,7 +285,7 @@ export default function BBPS() {
             {/* CTA */}
             <section className="py-20 bg-gray-900 text-white">
                 <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to start collecting payments?</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to start collecting payments?</h2>
                     <p className="text-gray-400 mb-10 text-lg max-w-2xl mx-auto">Integration takes less than 24 hours. Get your API keys today.</p>
                     <Link to="/contact">
                         <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 rounded-xl text-lg font-bold shadow-lg shadow-orange-900/20">
