@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
   Menu,
@@ -8,54 +8,148 @@ import {
   CreditCard,
   Building2,
   Zap,
-  Shield,
-  BarChart3,
   Wallet,
   Banknote,
-  Landmark,
-  FileCheck,
-  UserCheck,
   Globe,
-  Lock,
-  Eye,
-  AlertTriangle,
   Repeat,
   QrCode,
   Umbrella,
-  DollarSign
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+  DollarSign,
+  Plane,
+  Bus,
+  Hotel,
+  MapPin,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const collectionsProducts = [
-  { name: 'UPI Collection', href: '/collections/upi-collection', icon: CreditCard, description: 'Collect payments via UPI with real-time settlement' },
-  { name: 'Simpli Collect', href: '/collections/simpli-collect', icon: Zap, description: 'Unique Virtual IDs for hassle-free payments' },
-  { name: 'Recurring Collections', href: '/collections/recurring', icon: Repeat, description: 'Effortless automated recurring payments via UPI' },
-  { name: 'QR Collection for Merchants', href: '/collections/qr-collection', icon: QrCode, description: 'Effortless, secure, real-time QR payment collections' },
+  {
+    name: "UPI Collection",
+    href: "/collections/upi-collection",
+    icon: CreditCard,
+    description: "Collect payments via UPI with real-time settlement",
+  },
+  {
+    name: "Simpli Collect",
+    href: "/collections/simpli-collect",
+    icon: Zap,
+    description: "Unique Virtual IDs for hassle-free payments",
+  },
+  {
+    name: "Recurring Collections",
+    href: "/collections/recurring",
+    icon: Repeat,
+    description: "Effortless automated recurring payments via UPI",
+  },
+  {
+    name: "QR Collection for Merchants",
+    href: "/collections/qr-collection",
+    icon: QrCode,
+    description: "Effortless, secure, real-time QR payment collections",
+  },
 ];
 
 const paymentsProducts = [
-  { name: 'Payment Gateway', href: '/payments/gateway', icon: CreditCard, description: 'Secure payment processing' },
-  { name: 'UPI Solutions', href: '/payments/upi', icon: Building2, description: 'Unified Payments Interface' },
-  { name: 'Card Processing', href: '/payments/cards', icon: CreditCard, description: 'Credit/debit card payments' },
-  { name: 'Digital Wallets', href: '/payments/wallets', icon: Wallet, description: 'Mobile wallet integration' },
-  { name: 'BNPL', href: '/payments/bnpl', icon: Banknote, description: 'Buy Now Pay Later' },
-  { name: 'Cross-border Payments', href: '/payments/cross-border', icon: Globe, description: 'International transfers' },
+  {
+    name: "Payment Gateway",
+    href: "/payments/gateway",
+    icon: CreditCard,
+    description: "Secure payment processing",
+  },
+  {
+    name: "UPI Solutions",
+    href: "/payments/upi",
+    icon: Building2,
+    description: "Unified Payments Interface",
+  },
+  {
+    name: "Card Processing",
+    href: "/payments/cards",
+    icon: CreditCard,
+    description: "Credit/debit card payments",
+  },
+  {
+    name: "Digital Wallets",
+    href: "/payments/wallets",
+    icon: Wallet,
+    description: "Mobile wallet integration",
+  },
+  {
+    name: "BNPL",
+    href: "/payments/bnpl",
+    icon: Banknote,
+    description: "Buy Now Pay Later",
+  },
+  {
+    name: "Cross-border Payments",
+    href: "/payments/cross-border",
+    icon: Globe,
+    description: "International transfers",
+  },
 ];
 
 const serviceProducts = [
-  { name: 'Insurance', href: '/service/insurance', icon: Umbrella, description: 'Comprehensive insurance solutions' },
-  { name: 'Loan', href: '/service/lending', icon: Banknote, description: 'Flexible loan products' },
-  { name: 'Financial Service', href: '/service/wealth', icon: DollarSign, description: 'Complete financial services' },
-  { name: 'BBPS', href: '/service/bbps', icon: Zap, description: 'Bharat Bill Pay System' },
+  {
+    name: "Insurance",
+    href: "/service/insurance",
+    icon: Umbrella,
+    description: "Comprehensive insurance solutions",
+  },
+  {
+    name: "Loan",
+    href: "/service/lending",
+    icon: Banknote,
+    description: "Flexible loan products",
+  },
+  {
+    name: "Financial Service",
+    href: "/service/wealth",
+    icon: DollarSign,
+    description: "Complete financial services",
+  },
+  {
+    name: "BBPS",
+    href: "/service/bbps",
+    icon: Zap,
+    description: "Bharat Bill Pay System",
+  },
+];
+
+const travelProducts = [
+  {
+    name: "Flight Booking",
+    href: "/travel/flight",
+    icon: Plane,
+    description: "Real-time flight booking with best prices",
+  },
+  {
+    name: "Bus Tickets",
+    href: "/travel/bus",
+    icon: Bus,
+    description: "Book bus tickets across thousands of routes",
+  },
+  {
+    name: "Hotel Booking",
+    href: "/travel/hotel",
+    icon: Hotel,
+    description: "Discover and book hotels worldwide",
+  },
+  {
+    name: "Tours & Activities",
+    href: "/travel/tour",
+    icon: MapPin,
+    description: "Explore and book exciting tours",
+  },
 ];
 
 const navLinks = [
-  { name: 'Collections', href: '#', hasDropdown: true, type: 'collections' },
-  { name: 'Payments', href: '#', hasDropdown: true, type: 'payments' },
-  { name: 'Service', href: '#', hasDropdown: true, type: 'service' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact Us', href: '/contact' },
+  { name: "Collections", href: "#", hasDropdown: true, type: "collections" },
+  { name: "Payments", href: "#", hasDropdown: true, type: "payments" },
+  { name: "Service", href: "#", hasDropdown: true, type: "service" },
+  { name: "Travel", href: "/travel", hasDropdown: true, type: "travel" },
+  { name: "About", href: "/about" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export const Navbar = () => {
@@ -63,16 +157,19 @@ export const Navbar = () => {
   const [isBankingOpen, setIsBankingOpen] = useState(false);
   const [isPaymentsOpen, setIsPaymentsOpen] = useState(false);
   const [isSecurityOpen, setIsSecurityOpen] = useState(false);
+  const [isTravelOpen, setIsTravelOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(
+    null
+  );
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -80,6 +177,7 @@ export const Navbar = () => {
     setIsBankingOpen(false);
     setIsPaymentsOpen(false);
     setIsSecurityOpen(false);
+    setIsTravelOpen(false);
   }, [location]);
 
   return (
@@ -95,7 +193,11 @@ export const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <img src="/logo.png" alt="NWB Logo" className="h-10 w-auto object-contain" />
+            <img
+              src="/logo.png"
+              alt="NWB Logo"
+              className="h-10 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -106,23 +208,29 @@ export const Navbar = () => {
                   <button
                     className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium text-sm"
                     onMouseEnter={() => {
-                      if (link.type === 'collections') setIsBankingOpen(true);
-                      if (link.type === 'payments') setIsPaymentsOpen(true);
-                      if (link.type === 'service') setIsSecurityOpen(true);
+                      if (link.type === "collections") setIsBankingOpen(true);
+                      if (link.type === "payments") setIsPaymentsOpen(true);
+                      if (link.type === "service") setIsSecurityOpen(true);
+                      if (link.type === "travel") setIsTravelOpen(true);
                     }}
                     onMouseLeave={() => {
-                      if (link.type === 'collections') setIsBankingOpen(false);
-                      if (link.type === 'payments') setIsPaymentsOpen(false);
-                      if (link.type === 'service') setIsSecurityOpen(false);
+                      if (link.type === "collections") setIsBankingOpen(false);
+                      if (link.type === "payments") setIsPaymentsOpen(false);
+                      if (link.type === "service") setIsSecurityOpen(false);
+                      if (link.type === "travel") setIsTravelOpen(false);
                     }}
                   >
                     {link.name}
-                    <ChevronDown className={cn(
-                      "w-4 h-4 transition-transform duration-200",
-                      ((link.type === 'collections' && isBankingOpen) ||
-                        (link.type === 'payments' && isPaymentsOpen) ||
-                        (link.type === 'service' && isSecurityOpen)) && "rotate-180"
-                    )} />
+                    <ChevronDown
+                      className={cn(
+                        "w-4 h-4 transition-transform duration-200",
+                        ((link.type === "collections" && isBankingOpen) ||
+                          (link.type === "payments" && isPaymentsOpen) ||
+                          (link.type === "service" && isSecurityOpen) ||
+                          (link.type === "travel" && isTravelOpen)) &&
+                          "rotate-180"
+                      )}
+                    />
                   </button>
                 ) : (
                   <Link
@@ -137,54 +245,71 @@ export const Navbar = () => {
                 {/* Dropdown */}
                 {link.hasDropdown && (
                   <AnimatePresence>
-                    {((link.type === 'collections' && isBankingOpen) ||
-                      (link.type === 'payments' && isPaymentsOpen) ||
-                      (link.type === 'service' && isSecurityOpen)) && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
-                          onMouseEnter={() => {
-                            if (link.type === 'collections') setIsBankingOpen(true);
-                            if (link.type === 'payments') setIsPaymentsOpen(true);
-                            if (link.type === 'service') setIsSecurityOpen(true);
-                          }}
-                          onMouseLeave={() => {
-                            if (link.type === 'collections') setIsBankingOpen(false);
-                            if (link.type === 'payments') setIsPaymentsOpen(false);
-                            if (link.type === 'service') setIsSecurityOpen(false);
-                          }}
+                    {((link.type === "collections" && isBankingOpen) ||
+                      (link.type === "payments" && isPaymentsOpen) ||
+                      (link.type === "service" && isSecurityOpen) ||
+                      (link.type === "travel" && isTravelOpen)) && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
+                        onMouseEnter={() => {
+                          if (link.type === "collections")
+                            setIsBankingOpen(true);
+                          if (link.type === "payments") setIsPaymentsOpen(true);
+                          if (link.type === "service") setIsSecurityOpen(true);
+                          if (link.type === "travel") setIsTravelOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          if (link.type === "collections")
+                            setIsBankingOpen(false);
+                          if (link.type === "payments")
+                            setIsPaymentsOpen(false);
+                          if (link.type === "service") setIsSecurityOpen(false);
+                          if (link.type === "travel") setIsTravelOpen(false);
+                        }}
+                      >
+                        <div
+                          className={cn(
+                            "bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl border border-gray-100 p-4 grid gap-2",
+                            link.type === "travel"
+                              ? "min-w-[480px] grid-cols-2"
+                              : "min-w-[480px] grid-cols-2"
+                          )}
                         >
-                          <div className="bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl border border-gray-100 p-4 min-w-[480px] grid grid-cols-2 gap-2">
-                            {(link.type === 'collections' ? collectionsProducts :
-                              link.type === 'payments' ? paymentsProducts :
-                                serviceProducts).map((product) => (
-                                  <Link
-                                    key={product.name}
-                                    to={link.type === 'collections' ? "/collections" :
-                                      link.type === 'payments' ? "/payments" :
-                                        link.type === 'service' ? "/service" :
-                                          product.href}
-                                    className="flex items-start gap-3 p-3 rounded-xl hover:bg-blue-50 transition-all duration-200 group"
-                                  >
-                                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center group-hover:from-blue-200 group-hover:to-blue-100 transition-all shadow-sm">
-                                      <product.icon className="w-5 h-5 text-blue-600" />
-                                    </div>
-                                    <div>
-                                      <span className="block font-semibold text-sm text-gray-900 group-hover:text-blue-600 transition-colors">
-                                        {product.name}
-                                      </span>
-                                      <span className="text-xs text-gray-600 leading-snug">
-                                        {product.description}
-                                      </span>
-                                    </div>
-                                  </Link>
-                                ))}
-                          </div>
-                        </motion.div>
-                      )}
+                          {(link.type === "collections"
+                            ? collectionsProducts
+                            : link.type === "payments"
+                            ? paymentsProducts
+                            : link.type === "service"
+                            ? serviceProducts
+                            : link.type === "travel"
+                            ? travelProducts
+                            : []
+                          ).map((product) => (
+                            <Link
+                              key={product.name}
+                              to={product.href}
+                              className="flex items-start gap-3 p-3 rounded-xl hover:bg-blue-50 transition-all duration-200 group"
+                            >
+                              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center group-hover:from-blue-200 group-hover:to-blue-100 transition-all shadow-sm">
+                                <product.icon className="w-5 h-5 text-blue-600" />
+                              </div>
+                              <div>
+                                <span className="block font-semibold text-sm text-gray-900 group-hover:text-blue-600 transition-colors">
+                                  {product.name}
+                                </span>
+                                <span className="text-xs text-gray-600 leading-snug">
+                                  {product.description}
+                                </span>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
                   </AnimatePresence>
                 )}
               </div>
@@ -193,15 +318,11 @@ export const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button
-              className="text-gray-700 hover:text-gray-900 font-medium text-sm bg-transparent hover:bg-gray-50 border-0 shadow-none"
-            >
+            <Button className="text-gray-700 hover:text-gray-900 font-medium text-sm bg-transparent hover:bg-gray-50 border-0 shadow-none">
               Sign In
             </Button>
             <Link to="/contact">
-              <Button
-                className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold text-sm px-6 py-2 rounded-lg shadow-md hover:shadow-lg transition-all"
-              >
+              <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold text-sm px-6 py-2 rounded-lg shadow-md hover:shadow-lg transition-all">
                 Get Started Today
               </Button>
             </Link>
@@ -212,7 +333,11 @@ export const Navbar = () => {
             className="lg:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </nav>
@@ -222,7 +347,7 @@ export const Navbar = () => {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl border border-gray-100 mx-4 mt-2 overflow-hidden"
           >
@@ -232,14 +357,20 @@ export const Navbar = () => {
                   {link.hasDropdown ? (
                     <div className="space-y-3">
                       <button
-                        onClick={() => setOpenMobileSection(openMobileSection === link.name ? null : link.name)}
+                        onClick={() =>
+                          setOpenMobileSection(
+                            openMobileSection === link.name ? null : link.name
+                          )
+                        }
                         className="flex items-center justify-between w-full font-semibold text-gray-900 text-sm py-2"
                       >
                         {link.name}
-                        <ChevronDown className={cn(
-                          "w-4 h-4 transition-transform duration-200",
-                          openMobileSection === link.name && "rotate-180"
-                        )} />
+                        <ChevronDown
+                          className={cn(
+                            "w-4 h-4 transition-transform duration-200",
+                            openMobileSection === link.name && "rotate-180"
+                          )}
+                        />
                       </button>
                       <AnimatePresence>
                         {openMobileSection === link.name && (
@@ -251,27 +382,45 @@ export const Navbar = () => {
                             className="overflow-hidden"
                           >
                             <div className="pl-4 space-y-2 pb-2">
-                              {(link.type === 'collections' ? collectionsProducts :
-                                link.type === 'payments' ? paymentsProducts :
-                                  serviceProducts).map((product) => (
-                                    <Link
-                                      key={product.name}
-                                      to={link.type === 'collections' ? "/collections" :
-                                        link.type === 'payments' ? "/payments" :
-                                          link.type === 'service' ? "/service" :
-                                            product.href}
-                                      onClick={() => setIsMobileMenuOpen(false)}
-                                      className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors py-2 group"
-                                    >
-                                      <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                                        <product.icon className="w-4 h-4 text-blue-600" />
-                                      </div>
-                                      <div>
-                                        <div className="text-sm font-medium">{product.name}</div>
-                                        <div className="text-xs text-gray-500">{product.description}</div>
-                                      </div>
-                                    </Link>
-                                  ))}
+                              {(link.type === "collections"
+                                ? collectionsProducts
+                                : link.type === "payments"
+                                ? paymentsProducts
+                                : link.type === "service"
+                                ? serviceProducts
+                                : link.type === "travel"
+                                ? travelProducts
+                                : []
+                              ).map((product) => (
+                                <Link
+                                  key={product.name}
+                                  to={
+                                    link.type === "collections"
+                                      ? "/collections"
+                                      : link.type === "payments"
+                                      ? "/payments"
+                                      : link.type === "service"
+                                      ? "/service"
+                                      : link.type === "travel"
+                                      ? "/travel"
+                                      : product.href
+                                  }
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors py-2 group"
+                                >
+                                  <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                                    <product.icon className="w-4 h-4 text-blue-600" />
+                                  </div>
+                                  <div>
+                                    <div className="text-sm font-medium">
+                                      {product.name}
+                                    </div>
+                                    <div className="text-xs text-gray-500">
+                                      {product.description}
+                                    </div>
+                                  </div>
+                                </Link>
+                              ))}
                             </div>
                           </motion.div>
                         )}
@@ -288,15 +437,11 @@ export const Navbar = () => {
                 </div>
               ))}
               <div className="pt-4 space-y-3 border-t border-gray-100">
-                <Button
-                  className="w-full bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 font-medium rounded-lg"
-                >
+                <Button className="w-full bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 font-medium rounded-lg">
                   Sign In
                 </Button>
                 <Link to="/contact">
-                  <Button
-                    className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold rounded-lg shadow-md"
-                  >
+                  <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold rounded-lg shadow-md">
                     Get Started Today
                   </Button>
                 </Link>

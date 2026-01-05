@@ -354,7 +354,7 @@ const ServiceMockup = ({ service, index }: { service: typeof services[0], index:
 export default function Service() {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -588,7 +588,7 @@ export default function Service() {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -53,7 +53,7 @@ export default function PaymentGateway() {
 
   return (
     <div className="min-h-screen bg-white font-sans">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden bg-white text-foreground">
@@ -351,7 +351,7 @@ console.log(confirmed.status); // 'succeeded'`}</code></pre>
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

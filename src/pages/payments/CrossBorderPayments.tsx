@@ -8,7 +8,7 @@ import { ArrowRight, Globe, ArrowLeftRight, Coins, Plane } from 'lucide-react';
 export default function CrossBorderPayments() {
     return (
         <div className="min-h-screen bg-white font-sans">
-            <Navbar />
+            {/* <Navbar /> */}
 
             <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-blue-50 to-white">
                 <div className="container mx-auto px-6">
@@ -199,7 +199,7 @@ export default function CrossBorderPayments() {
                 </div>
             </section>
 
-            <Footer />
+            {/* <Footer /> */}
         </div >
     );
 }

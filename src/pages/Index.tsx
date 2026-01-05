@@ -10,7 +10,7 @@ import { CTASection } from '@/components/sections/CTASection';
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      {/* <Navbar /> */}
       <main>
         <HeroSection />
         <StickyScrollSection />
@@ -19,7 +19,7 @@ const Index = () => {
         <TestimonialsSection />
         <CTASection />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

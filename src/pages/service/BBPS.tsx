@@ -20,7 +20,7 @@ export default function BBPS() {
 
     return (
         <div className="min-h-screen bg-white font-sans">
-            <Navbar />
+            {/* <Navbar /> */}
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-orange-50 to-blue-50">
@@ -295,7 +295,7 @@ export default function BBPS() {
                 </div>
             </section>
 
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

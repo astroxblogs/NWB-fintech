@@ -409,7 +409,7 @@ const PaymentMockup = ({ payment, index }: { payment: typeof payments[0], index:
 export default function Payments() {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -642,7 +642,7 @@ export default function Payments() {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

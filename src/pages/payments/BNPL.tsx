@@ -12,7 +12,7 @@ export default function BNPL() {
 
     return (
         <div className="min-h-screen bg-white font-sans">
-            <Navbar />
+            {/* <Navbar /> */}
 
             <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-green-50 to-white">
                 <div className="container mx-auto px-6">
@@ -178,7 +178,7 @@ export default function BNPL() {
                 </div>
             </section>
 
-            <Footer />
+            {/* <Footer /> */}
         </div >
     );
 }

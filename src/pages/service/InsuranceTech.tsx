@@ -19,7 +19,7 @@ export default function InsuranceTech() {
 
     return (
         <div className="min-h-screen bg-white font-sans">
-            <Navbar />
+            {/* <Navbar /> */}
 
             <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-red-50 to-white">
                 <div className="container mx-auto px-6">
@@ -234,7 +234,7 @@ export default function InsuranceTech() {
                 </div>
             </section>
 
-            <Footer />
+            {/* <Footer /> */}
         </div >
     );
 }

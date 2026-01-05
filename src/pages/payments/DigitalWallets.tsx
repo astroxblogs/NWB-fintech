@@ -8,7 +8,7 @@ import { ArrowRight, Wallet, Radio, Zap } from 'lucide-react';
 export default function DigitalWallets() {
     return (
         <div className="min-h-screen bg-white font-sans">
-            <Navbar />
+            {/* <Navbar /> */}
 
             <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-vr from-orange-50 to-white">
                 <div className="container mx-auto px-6">
@@ -147,7 +147,7 @@ export default function DigitalWallets() {
                 </div>
             </section>
 
-            <Footer />
+            {/* <Footer /> */}
         </div >
     );
 }
