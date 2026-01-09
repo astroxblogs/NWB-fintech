@@ -1,35 +1,36 @@
-import { ArrowUpRight, Check, Shield, CreditCard, Banknote, Globe } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const partners = [
     {
         name: "Cashfree Payments",
         description: "Complete payments and banking platform for businesses in India.",
         color: "from-orange-500 to-red-500",
-        icon: CreditCard
+        image: "/Cashfree Payments.svg"
     },
     {
         name: "Paysprint",
         description: "Next-gen API infrastructure for unified open banking.",
         color: "from-blue-500 to-cyan-500",
-        icon: Globe
+        image: "/pay sprint.svg"
     },
     {
         name: "Infibeam Avenues",
         description: "Digital payment solutions and enterprise software platforms.",
         color: "from-purple-500 to-pink-500",
-        icon: Banknote
+        image: "/Avenues.png"
     },
     {
         name: "Razorpay",
         description: "Full-stack financial solutions for Indian businesses.",
         color: "from-blue-600 to-indigo-600",
-        icon: Shield
+        image: "/razorpay.svg"
     },
     {
         name: "PayMoney",
         description: "Secure and fast digital payment processing services.",
         color: "from-green-500 to-emerald-500",
-        icon: Banknote
+        image: "/pay-money-icon.svg"
     }
 ];
 
@@ -56,8 +57,12 @@ export default function Partner() {
                             <div className={`absolute inset-0 bg-gradient-to-br ${partner.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
 
                             <div className="relative z-10">
-                                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${partner.color} flex items-center justify-center text-white mb-6 shadow-lg`}>
-                                    <partner.icon className="w-6 h-6" />
+                                <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center mb-6 shadow-sm border border-border/50 p-2">
+                                    <img
+                                        src={partner.image}
+                                        alt={`${partner.name} logo`}
+                                        className="w-full h-full object-contain"
+                                    />
                                 </div>
 
                                 <h3 className="text-xl font-bold font-display mb-3 group-hover:text-primary transition-colors">
@@ -81,9 +86,9 @@ export default function Partner() {
                     <p className="text-muted-foreground max-w-xl mx-auto mb-8">
                         Join our network of industry-leading organizations and help us shape the future of fintech.
                     </p>
-                    <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors shadow-lg hover:shadow-primary/25">
+                    <Link to="/contact" className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors shadow-lg hover:shadow-primary/25 inline-block">
                         Contact for Partnership
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

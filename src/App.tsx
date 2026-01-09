@@ -49,7 +49,7 @@ import TourPage from "./pages/travel/tour";
 import { LegalLayout } from "./layouts/LegalLayout";
 import PrivacyPolicy from "./pages/Legal/PrivacyPolicy";
 import TermsOfService from "./pages/Legal/TermsOfService";
-import CookiePolicy from "./pages/Legal/CookiePolicy";
+import RefundPolicy from "./pages/Legal/RefundPolicy";
 import Partner from "./pages/Partner";
 
 import ScrollToTop from "./components/ScrollToTop";
@@ -119,7 +119,7 @@ const App = () => (
           <Route element={<LegalLayout />}>
             <Route path="/legal/privacy" element={<PrivacyPolicy />} />
             <Route path="/legal/terms" element={<TermsOfService />} />
-            <Route path="/legal/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/legal/refund-policy" element={<RefundPolicy />} />
           </Route>
         </Routes>
       </BrowserRouter>
